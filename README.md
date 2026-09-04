@@ -15,11 +15,10 @@ Página web informativa que representa la presencia digital actual de Polanco's 
 ## Estructura del proyecto
 
 ```
-ErsVisa/
+Polancos Migration/
 ├── css/          # Hojas de estilo
-├── img/          # Recursos gráficos
+├── assets/          # Recursos gráficos
 ├── js/           # Scripts de interactividad
-├── pages/     # Secciones modulares del sitio
 └── index.html    # Página principal
 ```
 
