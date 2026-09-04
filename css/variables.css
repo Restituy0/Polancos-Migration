@@ -1,0 +1,151 @@
+/* =========================================================
+   POLANCO'S MIGRACIÓN — Variables de marca y sistema base
+   ========================================================= */
+
+:root {
+  /* Paleta — derivada del logo */
+  --color-black: #1c1815;        /* negro cálido */
+  --color-black-soft: #2a2420;   /* variación para superficies oscuras */
+  --color-gold-dark: #9c7a2e;    /* sombra del degradado dorado */
+  --color-gold: #c9a227;         /* dorado principal / marca */
+  --color-gold-light: #e8c97a;   /* highlight del degradado */
+  --color-ivory: #f7f3eb;        /* fondo cálido de secciones claras */
+  --color-ivory-deep: #f0ead9;   /* fondo alterno, ligeramente más oscuro */
+  --color-white: #ffffff;
+  --color-gray-warm: #6e655a;    /* texto secundario */
+  --color-gray-line: #e4ddcd;    /* bordes/hairlines sobre fondo claro */
+  --color-gold-line: rgba(201, 162, 39, 0.35); /* bordes/hairlines sobre fondo oscuro */
+
+  /* Degradado de marca (icono del logo) */
+  --gradient-gold: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold) 55%, var(--color-gold-light));
+
+  /* Tipografía */
+  --font-heading: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Escala tipográfica */
+  --fs-hero: clamp(2.25rem, 4vw + 1rem, 3.75rem);
+  --fs-h2: clamp(1.75rem, 2.4vw + 1rem, 2.5rem);
+  --fs-h3: 1.25rem;
+  --fs-lead: clamp(1.05rem, 0.5vw + 1rem, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-kicker: 0.8rem;
+
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-section: clamp(4rem, 8vw, 7rem);
+
+  /* Bordes y radios */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Sombras (tono cálido, no gris genérico) */
+  --shadow-sm: 0 2px 10px rgba(28, 24, 21, 0.06);
+  --shadow-md: 0 10px 30px rgba(28, 24, 21, 0.10);
+  --shadow-gold: 0 8px 24px rgba(156, 122, 46, 0.25);
+
+  /* Layout */
+  --container-width: 1180px;
+  --header-height: 84px;
+
+  /* Transiciones */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.35s;
+}
+
+/* =========================================================
+   Reset
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body,
+h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-black);
+  background: var(--color-ivory);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-dark);
+  outline-offset: 2px;
+}
+
+/* Evita que el header sticky tape el inicio de cada sección al navegar por anclas */
+section[id] {
+  scroll-margin-top: var(--header-height);
+}
