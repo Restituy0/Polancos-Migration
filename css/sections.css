@@ -82,7 +82,7 @@
   font-weight: 600;
   font-size: var(--fs-kicker);
   letter-spacing: 0.2em;
-  color: var(--color-gold-dark);
+  color: var(--color-gold-text);
   margin-bottom: var(--space-md);
 }
 
@@ -94,10 +94,16 @@
 
 .hero h1 em {
   font-style: normal;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-gold-dark);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero h1 em {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .hero-sub {
@@ -146,11 +152,17 @@
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.9rem;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-gold-dark);
   line-height: 1.2;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero-stat strong {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .hero-stat span {
@@ -367,6 +379,10 @@
   right: var(--space-md);
 }
 
+.services-grid .card.is-featured .service-link {
+  color: var(--color-gold-light);
+}
+
 .service-link {
   display: inline-flex;
   align-items: center;
@@ -375,7 +391,7 @@
   padding-top: var(--space-sm);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-gold-dark);
+  color: var(--color-gold-text);
 }
 
 @media (max-width: 900px) {
@@ -507,16 +523,23 @@
   stroke: var(--color-black);
 }
 
+.contact-channel-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .contact-channel-text .label {
   font-size: 0.78rem;
   color: rgba(247, 243, 235, 0.55);
 }
 
 .contact-channel-text .value {
+  display: block;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1rem;
   color: var(--color-ivory);
+  overflow-wrap: break-word;
 }
 
 .contact-form-wrap {
@@ -536,6 +559,12 @@
   .contact {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrap {
+    padding: var(--space-md);
   }
 }
 

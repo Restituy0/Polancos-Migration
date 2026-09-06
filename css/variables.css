@@ -7,6 +7,7 @@
   --color-black: #1c1815;        /* negro cálido */
   --color-black-soft: #2a2420;   /* variación para superficies oscuras */
   --color-gold-dark: #9c7a2e;    /* sombra del degradado dorado */
+  --color-gold-text: #876a27;    /* variante de dorado con contraste AA para texto sobre fondos claros */
   --color-gold: #c9a227;         /* dorado principal / marca */
   --color-gold-light: #e8c97a;   /* highlight del degradado */
   --color-ivory: #f7f3eb;        /* fondo cálido de secciones claras */
@@ -143,6 +144,24 @@ h1, h2, h3, h4 {
 :focus-visible {
   outline: 3px solid var(--color-gold-dark);
   outline-offset: 2px;
+}
+
+/* Enlace "saltar al contenido": invisible hasta que recibe foco por teclado */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-md);
+  z-index: 200;
+  background: var(--color-black);
+  color: var(--color-ivory);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: top var(--dur-fast) var(--ease);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
 }
 
 /* Evita que el header sticky tape el inicio de cada sección al navegar por anclas */

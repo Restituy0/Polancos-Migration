@@ -44,6 +44,9 @@
   if (floatingWhatsapp && heroSection) {
     onScrollFloating();
     window.addEventListener("scroll", onScrollFloating, { passive: true });
+  } else if (floatingWhatsapp) {
+    // Páginas sin hero (legales, 404): no hay CTA de WhatsApp arriba, así que se muestra siempre
+    floatingWhatsapp.classList.add("is-visible");
   }
 
   /* -------------------------------------------------
@@ -65,7 +68,13 @@
           if (!entry.isIntersecting) return;
           var activeHref = "#" + entry.target.id;
           navLinks.forEach(function (link) {
-            link.classList.toggle("is-active", link.getAttribute("href") === activeHref);
+            var isActive = link.getAttribute("href") === activeHref;
+            link.classList.toggle("is-active", isActive);
+            if (isActive) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
           });
         });
       },
